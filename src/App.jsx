@@ -7,11 +7,20 @@ import FeaturesPage from "./pages/FeaturesPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AnalysisPage from "./pages/AnalysisPage";
 
 function App() {
   return (
     <Router>
       <Routes>
+      <Route
+        path="/analysis"
+        element={
+          <ProtectedRoute>
+            <AnalysisPage />
+          </ProtectedRoute>
+        }
+      />
         {/* Public */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />

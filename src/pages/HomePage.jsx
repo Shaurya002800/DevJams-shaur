@@ -6,6 +6,7 @@ function HomePage() {
   const navigate = useNavigate();
   const [devices, setDevices] = useState([]);
   const [scanning, setScanning] = useState(false);
+  const [connected, setConnected] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -15,16 +16,20 @@ function HomePage() {
   const handleScanDevices = async () => {
     setScanning(true);
     try {
-      // Web Bluetooth API (works in Chrome over HTTPS or localhost)
       const device = await navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
       });
       setDevices((prev) => [...prev, device.name || "Unnamed Device"]);
+      setConnected(true);
     } catch (error) {
       console.error("Bluetooth scan failed:", error);
       alert("Bluetooth scan failed or was cancelled.");
     }
     setScanning(false);
+  };
+
+  const handleStartMonitoring = () => {
+    navigate("/analysis");
   };
 
   return (
@@ -57,6 +62,15 @@ function HomePage() {
                 <li key={i}>{d}</li>
               ))}
             </ul>
+          )}
+
+          {connected && (
+            <button
+              className="start-btn"
+              onClick={handleStartMonitoring}
+            >
+              Start Monitoring
+            </button>
           )}
         </div>
       </div>
