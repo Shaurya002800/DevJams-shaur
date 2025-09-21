@@ -21,6 +21,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+        <div className="card current-temp">Current Temp: {temp}°C</div>
       <header className="dash-header">
         <h1>Welcome, {user}</h1>
         <button onClick={() => navigate("/")}>Logout</button>

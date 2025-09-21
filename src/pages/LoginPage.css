@@ -1,16 +1,182 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  .login-container input {
-    padding: 10px;
-    margin: 15px 0;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to top, #1a1f4d, #0a0f2c);
+  color: white;
+}
 
-  
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0,198,255,0.3), transparent 70%);
+  border-radius: 50%;
+  top: var(--mouseY, 20%);
+  left: var(--mouseX, 50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
+}
+
+input {
+  padding: 12px;
+  margin: 15px 0;
+  width: 250px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+input:focus {
+  box-shadow: 0 0 15px #00c6ff;
+}
+
+button {
+  background: #00c6ff;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+  background: #009adf;
+}
+
+input {
+  padding: 12px;
+  margin: 15px 0;
+  width: 250px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+input:focus {
+  box-shadow: 0 0 15px #00c6ff;
+}
+button {
+  background: #00c6ff;
+  border-radius: 8px;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+  background: #009adf;
+}
+
+/* Subtle lamp glow */
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0,198,255,0.3), transparent 70%);
+  border-radius: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+  from {opacity: 0.4;}
+  to {opacity: 1;}
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to top, #1a1f4d, #0a0f2c);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
+}
+
+input {
+  padding: 12px;
+  margin: 10px 0;
+  width: 250px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+input:focus {
+  box-shadow: 0 0 15px #00c6ff;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.show-hide-btn {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #00c6ff;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.show-hide-btn:hover {
+  transform: scale(1.05);
+  background: #009adf;
+}
+
+button {
+  margin-top: 20px;
+  background: #00c6ff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+  background: #009adf;
+}
+
+/* Subtle lamp glow following mouse */
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0,198,255,0.3), transparent 70%);
+  border-radius: 50%;
+  top: var(--mouseY, 50%);
+  left: var(--mouseX, 50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
