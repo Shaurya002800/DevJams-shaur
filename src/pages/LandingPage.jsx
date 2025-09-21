@@ -5,37 +5,43 @@ function LandingPage() {
   const navigate = useNavigate();
 
   return (
+    <div className="landing-container">
+      {/* Navbar */}
+      <nav className="navbar">
+        <h1 className="logo">SomnoShield</h1>
+        <div className="nav-links">
+          <button onClick={() => navigate("/login")}>Login</button>
+          <button onClick={() => navigate("/signup")}>Sign Up</button>
+        </div>
+      </nav>
 
-    <div className="landing">
-      <header className="header">
-        <h1>SomnoShield</h1>
-        <nav>
-                <a href="#features" onClick={(e) => { 
-            e.preventDefault(); 
-            document.getElementById('features').scrollIntoView({ behavior: 'smooth' }); 
-        }}>Features</a>
-        <a href="#about">About</a>
-        <button onClick={() => navigate("/login")}>Try Demo</button>
-        </nav>
-      </header>
-
+      {/* Intro Section */}
       <section className="hero">
-        <h2>Innovative Healthcare Monitoring</h2>
-        <p>Wearable device for fever reduction and sleep apnea detection.</p>
-        <button onClick={() => navigate("/login")}>Get Started</button>
+        <h2>Sleep Smart. Sleep Safe.</h2>
+        <p>
+          SomnoShield is an AI-powered sleep monitoring and wellness platform.
+          We help you track sleep cycles, analyze health patterns, and improve rest.
+        </p>
       </section>
 
-      <section id="features" className="features">
-        <div className="card">🌡️ Fever Reduction</div>
-        <div className="card">😴 Sleep Apnea Monitoring</div>
-        <div className="card">✅ Trusted by Providers</div>
+      {/* Details Section */}
+      <section className="details">
+        <h3>Why SomnoShield?</h3>
+        <div className="detail-grid">
+          <div className="detail-card">
+            <h4>Smart Tracking</h4>
+            <p>Monitor sleep quality using non-intrusive AI models.</p>
+          </div>
+          <div className="detail-card">
+            <h4>Personalized Insights</h4>
+            <p>Get AI-driven advice tailored to your sleep habits.</p>
+          </div>
+          <div className="detail-card">
+            <h4>Seamless Device Sync</h4>
+            <p>Connect your mobile via Bluetooth for real-time tracking.</p>
+          </div>
+        </div>
       </section>
-      <section className="hero">
-        <h2>Innovative Healthcare Monitoring</h2>
-        <p>Wearable device for fever reduction and sleep apnea detection.</p>
-        <div className="device"></div>
-        <button onClick={() => navigate("/login")}>Get Started</button>
-    </section>
     </div>
   );
 }
