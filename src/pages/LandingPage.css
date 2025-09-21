@@ -1,0 +1,27 @@
+.landing .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #0077cc, #00c6ff);
+    color: white;
+  }
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+  }
+  .features .card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
