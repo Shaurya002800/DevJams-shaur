@@ -1592,7 +1592,7 @@ CSS CODE:
                 .health-records-panel {
                     width: 90%;
                 }
-            }
+            }x  
 
             /* Hidden by default */
             .hidden {
@@ -1602,6 +1602,7 @@ CSS CODE:
     </head>
     <body>
         <!-- Navigation Bar -->
+        
         <nav class="navbar">
             <div class="logo" onclick="showPage('landing')">SomnoShield</div>
             <div class="nav-links">
@@ -2055,6 +2056,7 @@ CSS CODE:
         <script>
 
 // --- INTERACTIVE BREATHING EXERCISE SCRIPT ---
+const emergencyNumber = "+1 (555) 123-4567"
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.breathing-container');
@@ -2316,6 +2318,62 @@ document.addEventListener('DOMContentLoaded', () => {
                     triggerEmergencyAlert();
                 }
             }
+            let alertInterval;
+
+function startEmergencyAlert() {
+    let timeLeft = 15;
+    document.getElementById("alertTimer").innerText = timeLeft;
+    document.getElementById("emergencyAlert").classList.add("active");
+
+    alertInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById("alertTimer").innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(alertInterval);
+            triggerSOS(); // 🚨 Call SOS when timer expires
+        }
+    }, 1000);
+}
+
+function stopAlert() {
+    clearInterval(alertInterval);
+    document.getElementById("emergencyAlert").classList.remove("active");
+}
+</script>
+3. Add the SOS Trigger Function
+html
+Copy code
+<script>
+function triggerSOS() {
+    document.getElementById("emergencyAlert").classList.remove("active");
+    alert("🚨 SOS Triggered! Contacting emergency number: " + emergencyNumber);
+
+    // Option 1: Redirect to phone dialer (on mobile)
+    window.location.href = "tel:" + emergencyNumber;
+
+    // Option 2: Send SMS (works only on mobile)
+    // window.location.href = "sms:" + emergencyNumber + "?body=Emergency! Please help.";
+
+    // Option 3: If connected to backend, send API request
+    // fetch("/send-sos", { method: "POST", body: JSON.stringify({ number: emergencyNumber }) });
+}
+
+
+
+function triggerSOS() {
+    document.getElementById("emergencyAlert").classList.remove("active");
+    alert("🚨 SOS Triggered! Contacting emergency number: " + emergencyNumber);
+
+    // Option 1: Redirect to phone dialer (on mobile)
+    window.location.href = "tel:" + emergencyNumber;
+
+    // Option 2: Send SMS (works only on mobile)
+    // window.location.href = "sms:" + emergencyNumber + "?body=Emergency! Please help.";
+
+    // Option 3: If connected to backend, send API request
+    // fetch("/send-sos", { method: "POST", body: JSON.stringify({ number: emergencyNumber }) });
+}2
 
             function simulateAbnormality() {
                 // Simulate critical values for demonstration
